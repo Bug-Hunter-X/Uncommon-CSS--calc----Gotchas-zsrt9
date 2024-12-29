@@ -1,0 +1,25 @@
+The corrected CSS code is shown below, addressing the issues mentioned above:
+
+```css
+/* Corrected CSS */
+width: calc(100% - 50px);
+
+width: calc(50% + 100px);
+
+width:calc(calc(100% - 50px) - 20px);
+
+margin: calc((10px + 20px) / 2);
+
+@media (min-width: 768px){
+width:calc(100% - 50px);
+}
+```
+
+Key improvements:
+
+* **Spaces around operators:**  Spaces are added around the `-` operator in `calc(100% - 50px)`
+* **Units consistency:** Units are consistent within each expression
+* **Parentheses balance:** Parentheses are balanced and correctly placed. 
+* **Browser compatibility testing:** The corrected CSS should be thoroughly tested across different browsers. 
+* **Handling of floats:**  For more predictable outcomes when dealing with floating-point numbers, consider using a rounding function. 
+* **Media query correctness:** The usage of `calc()` within media queries is reviewed for correctness.
