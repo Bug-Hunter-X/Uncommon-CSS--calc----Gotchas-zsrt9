@@ -1,0 +1,41 @@
+The CSS property `calc()` is used to perform calculations. However, there are some uncommon errors that can occur when using `calc()`:
+
+1. **Missing spaces:** Spaces are crucial around operators (+, -, *, /) in `calc()` expressions. Forgetting them can lead to unexpected results.
+
+   ```css
+   width:calc(100%-50px); /* Incorrect: missing space around '-' */
+   width:calc(100% - 50px); /* Correct */
+   ```
+
+2. **Units mismatch:** If you mix units (e.g., pixels and percentages) in the expression without proper conversion, the result is unpredictable. 
+
+   ```css
+   width: calc(50% + 100px); /*Correct, although the result might not be what you expect*/
+   ```
+
+3. **Nesting limitations:** Although it's possible to nest `calc()` functions, too much nesting can make it hard to read and debug. It may also cause browser compatibility issues.
+   ```css
+   width:calc(calc(100% - 50px) - 20px);/*Correct, but nesting is not always desirable*/
+   ```
+
+4. **Parentheses issues:**  Unbalanced or incorrectly placed parentheses can lead to errors during parsing. Ensure all parentheses are closed correctly.
+
+   ```css
+   margin: calc((10px + 20px) / 2); /*Correct*/
+   margin: calc(10px + 20px)/2;/*Incorrect*/
+   ```
+
+5. **Browser Compatibility:** Older browsers might have limited support for complex `calc()` expressions.  Always test thoroughly across different browsers.
+
+6. **Unexpected Behavior with Floats:** Unexpected behavior might arise when using `calc()` with floating-point numbers, especially when dealing with rounding errors, it's good practice to round off results using `round()` function
+   ```css
+   width:calc(100%/3); /*Correct, but might produce unexpected result*/
+   ```
+
+7. **Incorrect Usage with `@media` Queries:**  Incorrect usage of `calc()` within `@media` queries can cause layout issues. Ensure the expressions are correctly evaluated based on the provided breakpoint.
+
+   ```css
+   @media (min-width: 768px){
+   width:calc(100% - 50px);
+   }
+   ```
